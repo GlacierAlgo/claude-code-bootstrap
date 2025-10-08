@@ -17,50 +17,48 @@ VERSION="2.0.0"
 
 # Usage information
 usage() {
-    cat << EOF
-${CYAN}════════════════════════════════════════════════════════════════${NC}
-${YELLOW}Claude Code Multi-Agent Orchestrator v${VERSION}${NC}
-${CYAN}════════════════════════════════════════════════════════════════${NC}
-
-${GREEN}USAGE:${NC}
-    orchestrate <command> [options]
-
-${GREEN}COMMANDS:${NC}
-    ${BLUE}init${NC}              Initialize orchestrator in current project
-    ${BLUE}plan${NC} <task>       Create multi-agent plan from task description
-    ${BLUE}execute${NC}           Execute approved plan with subagents
-    ${BLUE}status${NC}            Show current orchestration status
-    ${BLUE}integrate${NC}         Integrate subagent results
-    ${BLUE}cleanup${NC}           Archive completed orchestration
-
-    ${BLUE}help${NC}              Show this help message
-    ${BLUE}version${NC}           Show version information
-
-${GREEN}EXAMPLES:${NC}
-    ${PURPLE}# Setup in new project${NC}
-    orchestrate init
-
-    ${PURPLE}# Create plan for complex task${NC}
-    orchestrate plan "Build REST API with auth, users, and admin endpoints"
-
-    ${PURPLE}# Execute the plan (spawns subagents)${NC}
-    orchestrate execute
-
-    ${PURPLE}# Check progress${NC}
-    orchestrate status
-
-    ${PURPLE}# Integrate when complete${NC}
-    orchestrate integrate
-
-    ${PURPLE}# Clean up${NC}
-    orchestrate cleanup
-
-${GREEN}DOCUMENTATION:${NC}
-    Local:  See .orchestrator/README.md for complete documentation
-    Online: https://github.com/GlacierAlgo/claude-code-bootstrap
-
-${CYAN}════════════════════════════════════════════════════════════════${NC}
-EOF
+    echo -e "${CYAN}════════════════════════════════════════════════════════════════${NC}"
+    echo -e "${YELLOW}Claude Code Multi-Agent Orchestrator v${VERSION}${NC}"
+    echo -e "${CYAN}════════════════════════════════════════════════════════════════${NC}"
+    echo ""
+    echo -e "${GREEN}USAGE:${NC}"
+    echo "    orchestrate <command> [options]"
+    echo ""
+    echo -e "${GREEN}COMMANDS:${NC}"
+    echo -e "    ${BLUE}init${NC}              Initialize orchestrator in current project"
+    echo -e "    ${BLUE}plan${NC} <task>       Create multi-agent plan from task description"
+    echo -e "    ${BLUE}execute${NC}           Execute approved plan with subagents"
+    echo -e "    ${BLUE}status${NC}            Show current orchestration status"
+    echo -e "    ${BLUE}integrate${NC}         Integrate subagent results"
+    echo -e "    ${BLUE}cleanup${NC}           Archive completed orchestration"
+    echo ""
+    echo -e "    ${BLUE}help${NC}              Show this help message"
+    echo -e "    ${BLUE}version${NC}           Show version information"
+    echo ""
+    echo -e "${GREEN}EXAMPLES:${NC}"
+    echo -e "    ${PURPLE}# Setup in new project${NC}"
+    echo "    orchestrate init"
+    echo ""
+    echo -e "    ${PURPLE}# Create plan for complex task${NC}"
+    echo "    orchestrate plan \"Build REST API with auth, users, and admin endpoints\""
+    echo ""
+    echo -e "    ${PURPLE}# Execute the plan (spawns subagents)${NC}"
+    echo "    orchestrate execute"
+    echo ""
+    echo -e "    ${PURPLE}# Check progress${NC}"
+    echo "    orchestrate status"
+    echo ""
+    echo -e "    ${PURPLE}# Integrate when complete${NC}"
+    echo "    orchestrate integrate"
+    echo ""
+    echo -e "    ${PURPLE}# Clean up${NC}"
+    echo "    orchestrate cleanup"
+    echo ""
+    echo -e "${GREEN}DOCUMENTATION:${NC}"
+    echo "    Local:  See .orchestrator/README.md for complete documentation"
+    echo "    Online: https://github.com/GlacierAlgo/claude-code-bootstrap"
+    echo ""
+    echo -e "${CYAN}════════════════════════════════════════════════════════════════${NC}"
 }
 
 # Main command dispatcher
