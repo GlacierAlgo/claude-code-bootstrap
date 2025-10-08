@@ -37,15 +37,13 @@ main() {
     echo
 
     # Show summary
-    cat <<EOF
-${YELLOW}Summary:${NC}
-  Total Tasks:    $total
-  ✅ Completed:   $completed
-  🔄 In Progress: $in_progress
-  ⏳ Pending:     $pending
-  🚫 Blocked:     $blocked
-
-EOF
+    echo -e "${YELLOW}Summary:${NC}"
+    echo "  Total Tasks:    $total"
+    echo "  ✅ Completed:   $completed"
+    echo "  🔄 In Progress: $in_progress"
+    echo "  ⏳ Pending:     $pending"
+    echo "  🚫 Blocked:     $blocked"
+    echo ""
 
     # Show each task
     echo "${YELLOW}Tasks:${NC}"

@@ -32,14 +32,12 @@ main() {
     local total=$(echo "$summary" | jq -r '.total_tasks')
     local completed=$(echo "$summary" | jq -r '.completed')
 
-    cat <<EOF
-${YELLOW}Orchestration Summary:${NC}
-  ID: $orch_id
-  Task: $task_desc
-  Created: $created_at
-  Tasks: $completed/$total completed
-
-EOF
+    echo -e "${YELLOW}Orchestration Summary:${NC}"
+    echo "  ID: $orch_id"
+    echo "  Task: $task_desc"
+    echo "  Created: $created_at"
+    echo "  Tasks: $completed/$total completed"
+    echo ""
 
     if ! confirm "Archive this orchestration?" "y"; then
         warn "Cleanup cancelled"
