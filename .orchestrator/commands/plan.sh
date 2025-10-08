@@ -30,38 +30,36 @@ main() {
     # Analyze task and create decomposition
     info "Analyzing task for decomposition..."
     echo
-    cat <<EOF
-${CYAN}────────────────────────────────────────────────────────────────${NC}
-${YELLOW}📋 PROPOSED MULTI-AGENT DECOMPOSITION${NC}
-${CYAN}────────────────────────────────────────────────────────────────${NC}
-
-${PURPLE}This is where the main Claude Code instance would analyze the task
-and propose a decomposition into parallel subtasks.${NC}
-
-For now, this is a manual step. The system will:
-1. Create GitHub issues for each subtask
-2. Save the plan to state
-3. Wait for your approval to execute
-
-${YELLOW}Example decomposition for: "$task_description"${NC}
-
-Task 1: [code-implementation] Core functionality
-  - Implement main business logic
-  - Create necessary data models
-  - Set up basic infrastructure
-
-Task 2: [documentation-specialist] Documentation
-  - Write API documentation
-  - Create usage examples
-  - Document architecture decisions
-
-Task 3: [testing-specialist] Testing
-  - Write unit tests
-  - Create integration tests
-  - Ensure code coverage
-
-${CYAN}────────────────────────────────────────────────────────────────${NC}
-EOF
+    echo -e "${CYAN}────────────────────────────────────────────────────────────────${NC}"
+    echo -e "${YELLOW}📋 PROPOSED MULTI-AGENT DECOMPOSITION${NC}"
+    echo -e "${CYAN}────────────────────────────────────────────────────────────────${NC}"
+    echo ""
+    echo -e "${PURPLE}This is where the main Claude Code instance would analyze the task"
+    echo -e "and propose a decomposition into parallel subtasks.${NC}"
+    echo ""
+    echo "For now, this is a manual step. The system will:"
+    echo "1. Create GitHub issues for each subtask"
+    echo "2. Save the plan to state"
+    echo "3. Wait for your approval to execute"
+    echo ""
+    echo -e "${YELLOW}Example decomposition for: \"$task_description\"${NC}"
+    echo ""
+    echo "Task 1: [code-implementation] Core functionality"
+    echo "  - Implement main business logic"
+    echo "  - Create necessary data models"
+    echo "  - Set up basic infrastructure"
+    echo ""
+    echo "Task 2: [documentation-specialist] Documentation"
+    echo "  - Write API documentation"
+    echo "  - Create usage examples"
+    echo "  - Document architecture decisions"
+    echo ""
+    echo "Task 3: [testing-specialist] Testing"
+    echo "  - Write unit tests"
+    echo "  - Create integration tests"
+    echo "  - Ensure code coverage"
+    echo ""
+    echo -e "${CYAN}────────────────────────────────────────────────────────────────${NC}"
 
     echo
     if ! confirm "Create this orchestration plan?" "y"; then

@@ -72,40 +72,38 @@ main() {
     echo
     success "All subagents spawned!"
     echo
-    cat <<EOF
-${CYAN}════════════════════════════════════════════════════════════════${NC}
-${YELLOW}📝 IMPORTANT NOTE${NC}
-
-This is a demonstration implementation. In a production version:
-
-1. ${PURPLE}Real Claude Code processes would be spawned${NC}
-   - Each would run: claude code --prompt "..."
-   - Each bound to specific GitHub issue
-   - Each working in isolated directory
-
-2. ${PURPLE}Processes would run truly in parallel${NC}
-   - Independent Claude Code instances
-   - Coordinated via GitHub Issues
-   - State synced via files + GitHub API
-
-3. ${PURPLE}Main orchestrator would monitor progress${NC}
-   - Poll GitHub issues for updates
-   - Check subagent health
-   - Handle failures and retry
-
-${YELLOW}Current Implementation:${NC}
-- Created state files for each subagent
-- Logged spawn attempts
-- Ready for manual subagent work
-
-${YELLOW}Next Steps (Manual for now):${NC}
-1. Manually work on each GitHub issue
-2. Update issue status/comments as you go
-3. Run: orchestrate status (to check progress)
-4. Run: orchestrate integrate (when all complete)
-
-${CYAN}════════════════════════════════════════════════════════════════${NC}
-EOF
+    echo -e "${CYAN}════════════════════════════════════════════════════════════════${NC}"
+    echo -e "${YELLOW}📝 IMPORTANT NOTE${NC}"
+    echo ""
+    echo "This is a demonstration implementation. In a production version:"
+    echo ""
+    echo -e "1. ${PURPLE}Real Claude Code processes would be spawned${NC}"
+    echo "   - Each would run: claude code --prompt \"...\""
+    echo "   - Each bound to specific GitHub issue"
+    echo "   - Each working in isolated directory"
+    echo ""
+    echo -e "2. ${PURPLE}Processes would run truly in parallel${NC}"
+    echo "   - Independent Claude Code instances"
+    echo "   - Coordinated via GitHub Issues"
+    echo "   - State synced via files + GitHub API"
+    echo ""
+    echo -e "3. ${PURPLE}Main orchestrator would monitor progress${NC}"
+    echo "   - Poll GitHub issues for updates"
+    echo "   - Check subagent health"
+    echo "   - Handle failures and retry"
+    echo ""
+    echo -e "${YELLOW}Current Implementation:${NC}"
+    echo "- Created state files for each subagent"
+    echo "- Logged spawn attempts"
+    echo "- Ready for manual subagent work"
+    echo ""
+    echo -e "${YELLOW}Next Steps (Manual for now):${NC}"
+    echo "1. Manually work on each GitHub issue"
+    echo "2. Update issue status/comments as you go"
+    echo "3. Run: orchestrate status (to check progress)"
+    echo "4. Run: orchestrate integrate (when all complete)"
+    echo ""
+    echo -e "${CYAN}════════════════════════════════════════════════════════════════${NC}"
 
     echo
     info "Monitor progress:"
