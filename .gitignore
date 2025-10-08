@@ -1,6 +1,8 @@
 .env
 .env.local
-.orchestrator/
+.orchestrator/state/
+.orchestrator/logs/
+.orchestrator/archive/
 *.pyc
 __pycache__/
 *.egg-info/
