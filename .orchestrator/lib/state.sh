@@ -158,6 +158,12 @@ state_get_status() {
     local pending=$(echo "$state" | jq '[.tasks[] | select(.status == "pending")] | length')
     local blocked=$(echo "$state" | jq '[.tasks[] | select(.status == "blocked")] | length')
 
+    # Calculate progress (avoid division by zero)
+    local progress_percent=0
+    if [[ $total_tasks -gt 0 ]]; then
+        progress_percent=$((completed * 100 / total_tasks))
+    fi
+
     cat <<EOF
 {
   "orchestration_id": "$orchestration_id",
@@ -166,7 +172,7 @@ state_get_status() {
   "in_progress": $in_progress,
   "pending": $pending,
   "blocked": $blocked,
-  "progress_percent": $((completed * 100 / total_tasks))
+  "progress_percent": $progress_percent
 }
 EOF
 }

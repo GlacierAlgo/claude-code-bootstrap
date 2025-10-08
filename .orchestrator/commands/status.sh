@@ -30,10 +30,10 @@ main() {
     local filled=$((progress * bar_width / 100))
     local empty=$((bar_width - filled))
 
-    echo -n "${CYAN}Progress: ${NC}["
+    echo -ne "${CYAN}Progress: ${NC}["
     printf "%${filled}s" | tr ' ' '█'
     printf "%${empty}s" | tr ' ' '░'
-    echo "] ${progress}%"
+    echo -e "] ${progress}%"
     echo
 
     # Show summary
@@ -46,7 +46,7 @@ main() {
     echo ""
 
     # Show each task
-    echo "${YELLOW}Tasks:${NC}"
+    echo -e "${YELLOW}Tasks:${NC}"
     local tasks=$(echo "$state" | jq -c '.tasks[]')
     while IFS= read -r task; do
         local issue=$(echo "$task" | jq -r '.issue_number')
